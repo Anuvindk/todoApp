@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include ('header') %>
+    <main>
+        <h1>Edit Page</h1>
+        <section class="editSection">
+            <form action="/update/<%= todoData._id %>" class="edit-form" method="post" autocomplete="off">
+                <input type="text" value="<%= new Date(todoData.todoDate).toLocaleString('en-IN',{
+                    day : '2-digit',
+                    month : '2-digit',
+                    year : 'numeric',
+                    hour : '2-digit',
+                    minute : '2-digit',
+                    hour12 : true
+                }) %>" disabled>
+                <input type="text" value="<%= todoData.todoEntry %>" name="todoEntry">
+                <div class="btn-group">
+                    <button type="submit" class="edit-btn">Update</button>
+                    <button type="reset" class="edit-btn">Reset</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <%- include ('footer') %>
+</body>
+</html>
